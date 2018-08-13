@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Observable } from '../../node_modules/rxjs';
 import { Symbol } from './models/symbol';
-
+import { Observable, of } from 'rxjs';
+import { HttpSentEvent, HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
 export class SymbolService {
 
-  constructor() { }
+  symbols_url = 'http://172.20.10.12:8080/symbols/allSymbols';
 
-  getSymbols(): Symbol[] {
-    return [
-      {code: 'a', name: 'aaaaaaaaaaaaaaaaaa'},
-      {code: 'ab', name: 'absdfsgsd'},
-      {code: 'b', name: 'bbbb'}
-    ];
+  constructor(private http: HttpClient) { }
+
+  getSymbols(): Observable<Symbol[]> {
+    return this.http.get<Symbol[]>(this.symbols_url);
   }
 
 }

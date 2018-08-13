@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Symbol } from '../models/symbol';
 
 @Component({
   selector: 'app-symbol',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SymbolComponent implements OnInit {
 
+  symbol: Symbol = { symbolId: 'a', symbolName: 'aaaa' };
   constructor() { }
 
   ngOnInit() {

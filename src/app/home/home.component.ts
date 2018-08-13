@@ -24,17 +24,16 @@ export class HomeComponent implements OnInit {
   }
   
   getSymbols() {
-    this.all_symbols = this.symbolService.getSymbols();
-    this.symbols = this.all_symbols;
+    this.symbolService.getSymbols().subscribe(symbols => {this.all_symbols= symbols; this.symbols=this.all_symbols});
   }
 
   showSearch(event: any) {
     this.prefix = event.target.value;
-    this.symbols = this.all_symbols.filter(symbol => symbol.name.startsWith(this.prefix));
+    this.symbols = this.all_symbols.filter(symbol => symbol.symbolId.startsWith(this.prefix));
   }
 
   toDetail(symbol: Symbol) {
-    this.router.navigate(['/symbol/' + symbol.code])
+    this.router.navigate(['/symbol/' + symbol.symbolId])
   }
 
 }

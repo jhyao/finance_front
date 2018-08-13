@@ -1,0 +1,25 @@
+#chart {
+    width: 1228px;
+    height: 600px;
+}
+
+.filter-container label{
+    margin-right: 4px; 
+}
+
+#from-date, #to-date, #interval {
+    width: 150px;
+}
+
+input, select {
+    margin-right: 40px;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;  
+}
+
+.container {
+    max-width: 1300px !important;
+}
