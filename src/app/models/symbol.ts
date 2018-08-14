@@ -1,4 +1,5 @@
 export class Symbol {
-    symbolId: string;
-    symbolName: string;
+    symbolid: number;
+    symbol: string;
+    companyname: string;
 }

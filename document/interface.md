@@ -17,24 +17,22 @@ response:
     result: [
         {
             symbol: "a”，
-            open: [],
-            close: [].
-            high: [],
-            low: [],
-            volume: [],
-            time: ["01/01/2016", "01/02/2016", ...] //interval为一天时，可以显示在时间横轴的时间
+            data: [
+                [date, open, close, high, low, volume]
+            ]
         },
         {
             symbol: "b”，
-            open: [],
-            close: [].
-            high: [],
-            low: [],
-            volume: [],
-            time: [] // 多个symbol时，time要完全相同，遵照第一个的时间轴，补全空缺的数据
+            data: [
+                [date, open, close, high, low, volume]
+            ]
         }
     ]
 }
+
+
+* portfolio interface
+** get user portfolio
 
 ```json
 [

@@ -3,17 +3,26 @@ import { Symbol } from './models/symbol';
 import { Observable, of } from 'rxjs';
 import { HttpSentEvent, HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import { config } from './config';
 @Injectable({
   providedIn: 'root'
 })
 export class SymbolService {
 
-  symbols_url = 'http://172.20.10.12:8080/symbols/allSymbols';
+  symbols_url = config.api_url + config.symbol_api;
+  symbols: Symbol[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+  }
 
   getSymbols(): Observable<Symbol[]> {
+    if(this.symbols.length > 0) {
+      return of(this.symbols);
+    }
     return this.http.get<Symbol[]>(this.symbols_url);
   }
 
+  saveSymbols(symbols: Symbol[]) {
+    this.symbols = symbols;
+  }
 }

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { SymbolService } from './symbol.service';
+import { Symbol } from './models/symbol';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'finance';
+
+  ngOnInit() {
+  }
 }

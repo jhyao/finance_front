@@ -7,7 +7,7 @@
     margin-right: 4px; 
 }
 
-#from-date, #to-date, #interval {
+#from-date, #to-date, #interval, #chart-type{
     width: 150px;
 }
 
@@ -18,8 +18,4 @@ input, select {
 .row {
     margin-left: 0;
     margin-right: 0;  
-}
-
-.container {
-    max-width: 1300px !important;
 }

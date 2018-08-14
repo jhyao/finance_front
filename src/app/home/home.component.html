@@ -33,8 +33,8 @@
     <table class="table">
       <tbody>
         <tr class="symbol-row" *ngFor="let symbol of symbols" (click)="toDetail(symbol)">
-          <td class="first-column" scope="row"><strong>{{ prefix }}</strong>{{ symbol.symbolId.slice(prefix.length) }}</td>
-          <td class="second-column">{{ symbol.symbolName }}</td>
+          <td class="first-column" scope="row"><strong>{{ prefix }}</strong>{{ symbol.symbol.slice(prefix.length) }}</td>
+          <td class="second-column">{{ symbol.companyname }}</td>
         </tr>
       </tbody>
     </table>

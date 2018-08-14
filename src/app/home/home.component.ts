@@ -29,11 +29,11 @@ export class HomeComponent implements OnInit {
 
   showSearch(event: any) {
     this.prefix = event.target.value;
-    this.symbols = this.all_symbols.filter(symbol => symbol.symbolId.startsWith(this.prefix));
+    this.symbols = this.all_symbols.filter(symbol => symbol.symbol.startsWith(this.prefix));
   }
 
   toDetail(symbol: Symbol) {
-    this.router.navigate(['/symbol/' + symbol.symbolId])
+    this.router.navigate(['/symbol/' + symbol.symbol])
   }
 
 }

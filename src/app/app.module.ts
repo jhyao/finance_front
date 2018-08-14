@@ -10,13 +10,15 @@ import { ChartComponent } from './chart/chart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DlDateTimePickerDateModule } from 'angular-bootstrap-datetimepicker';
 import { FormsModule } from '../../node_modules/@angular/forms';
+import { SymbolsSelectorComponent } from './symbols-selector/symbols-selector.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SymbolComponent,
-    ChartComponent
+    ChartComponent,
+    SymbolsSelectorComponent
   ],
   imports: [
     BrowserModule,

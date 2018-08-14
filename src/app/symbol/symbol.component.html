@@ -1,1 +1,39 @@
-<app-chart></app-chart>
+<div>
+    <div class="container">
+        <div class="">
+            <div class="symbol-item active" *ngFor="let symbol of symbols" id="symbol-{{symbol.symbol}}" title="{{ symbol.companyname }}"
+                (click)="removeActive(symbol)">
+                <h5 class="symbol-code">{{ symbol.symbol }}</h5>
+                <span class="oi oi-circle-x remove-icon" (click)="remove(symbol)"></span>
+            </div>
+            <div class="add-item">
+                <span class="oi oi-plus add-icon" (click)="open(content)"></span>
+            </div>
+            <div class="clear-float"></div>
+        </div>
+    </div>
+    <app-chart [symbols]="{{ symbols }}" [activeSymbols]="{{ active_symbols }}"></app-chart>
+</div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add symbols</h4>
+        <button id="modal-close-btn" type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <input id="symbol-input" class="form-control" placeholder="symbol" name="symbol-input" type="text"
+                 (keyup)="showSearch($event)" [(ngModel)]="prefix">
+                <div class="symbol-list-container">
+                    <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let symbol of search_symbols" (click)="selectSymbol(symbol)">
+                            <strong>{{ prefix }}</strong>{{ symbol.symbol.slice(prefix.length) }} ({{ symbol.companyname }})</li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </div>
+</ng-template>

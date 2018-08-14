@@ -1,24 +1,26 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">{{ symbol.symbolId }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{ symbol.symbolName }}</h6>
-            <hr>
             <div class="chart-container">
                 <div class="filter-container">
                     <form>
                         <div class="form-group row">
                             <label class="col-form-label col-form-label-sm" for="from-date">From: </label>
-                            <input class="form-control form-control-sm" type="date" id="from-date" value="2016-01-01" min="2016-01-01" max="2016-03-31"
-                                [(ngModel)]="filter.fromDate">
+                            <input class="form-control form-control-sm" type="date" id="from-date" name="fromDate" value="2016-01-01" min="2016-01-01" max="2016-03-31"
+                                [(ngModel)]="filter.fromDate" (change)="refreshDate()">
                             <label class="col-form-label col-form-label-sm" for="to-date">To: </label>
-                            <input class="form-control form-control-sm" type="date" id="to-date" value="2016-03-31" min="2016-01-01" max="2016-03-31"
-                                [(ngModel)]="filter.toDate">
+                            <input class="form-control form-control-sm" type="date" id="to-date" name="toDate" value="2016-03-31" min="2016-01-01" max="2016-03-31"
+                                [(ngModel)]="filter.toDate" (change)="refreshDate()">
                             <label class="col-form-label col-form-label-sm" for="interval">Interval: </label>
-                            <select id="interval" class="form-control form-control-sm " [(ngModel)]="filter.interval">
-                                <option selected value="1h">1 hour</option>
-                                <option value="1d">1 day</option>
+                            <select id="interval" class="form-control form-control-sm" name="interval" [(ngModel)]="filter.interval" (change)="refreshInterval()">
+                                <option value="1h">1 hour</option>
+                                <option selected value="1d">1 day</option>
                                 <option value="1m">1 month</option>
+                            </select>
+                            <label class="col-form-label col-form-label-sm" for="chart-type">Chart: </label>
+                            <select id="chart-type" class="form-control form-control-sm" name="chartType" [(ngModel)]="filter.chartType" (change)="refreshType()">
+                                <option selected value="k">K</option>
+                                <option value="l">Line</option>
                             </select>
                         </div>
                     </form>
