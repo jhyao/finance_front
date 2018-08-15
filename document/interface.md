@@ -18,13 +18,13 @@ response:
         {
             symbol: "a”，
             data: [
-                [date, open, close, high, low, volume]
+                [date, open, close, high, low, volume, change]
             ]
         },
         {
             symbol: "b”，
             data: [
-                [date, open, close, high, low, volume]
+                [date, open, close, high, low, volume, change]
             ]
         }
     ]
@@ -50,3 +50,52 @@ response:
     }
 ]
 ```
+
+* top-price
+
+url: 'api/top-tail'
+
+params: {
+    from_date = 20160101,
+    to_date = 20160331,
+    interval = "1m" | "1h" | "1d" | ”1M“,
+    symbol = "a" | "a|b" // 可以同时查询多个symbol的数据,
+    num = 10
+    field: 'price'|'volume'|'change'
+    type: 'top'|'tail'
+}
+
+// change = (close-open)/open
+up max change
+down min change
+
+return: 
+[
+    {
+        symbol: 'a',
+        top-price: [
+            [date, price]
+        ]
+    }
+]
+
+* top-volume
+url: 'api/top-price'
+
+params: {
+    from_date = 20160101,
+    to_date = 20160331,
+    interval = "1m" | "1h" | "1d" | ”1M“,
+    symbol = "a" | "a|b" // 可以同时查询多个symbol的数据,
+    num = 10
+}
+
+return: 
+[
+    {
+        symbol: 'a',
+        top-price: [
+            [date, price]
+        ]
+    }
+]

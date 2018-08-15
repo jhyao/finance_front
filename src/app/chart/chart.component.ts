@@ -296,7 +296,7 @@ export class ChartComponent implements OnInit {
       }
     }
     this.myChart.hideLoading();
-    this.myChart.setOption(option);
+    this.myChart.setOption(option, true);
     this.myChart.dispatchAction({
       type: 'brush',
       areas: [

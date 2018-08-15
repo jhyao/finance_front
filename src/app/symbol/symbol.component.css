@@ -1,5 +1,5 @@
-.container {
-    margin-top: 20px; 
+.symbol-selector-container {
+    margin-top: 20px;
 }
 .symbol-item {
     float: left;
@@ -57,4 +57,28 @@
 .symbol-list-container {
     height: 400px;
     overflow: auto;
+}
+
+#chart {
+    width: 1228px;
+    height: 450px;
+}
+
+
+
+.filter-container label{
+    margin-right: 4px; 
+}
+
+.filter-input{
+    width: 150px;
+}
+
+input, select {
+    margin-right: 40px;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;  
 }

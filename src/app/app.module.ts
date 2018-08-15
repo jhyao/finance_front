@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { DlDateTimePickerDateModule } from 'angular-bootstrap-datetimepicker';
 import { FormsModule } from '../../node_modules/@angular/forms';
 import { SymbolsSelectorComponent } from './symbols-selector/symbols-selector.component';
+import { LoginComponent } from './login/login.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { SymbolsSelectorComponent } from './symbols-selector/symbols-selector.co
     HomeComponent,
     SymbolComponent,
     ChartComponent,
-    SymbolsSelectorComponent
+    SymbolsSelectorComponent,
+    LoginComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,

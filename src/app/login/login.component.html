@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="form row">
+      <form class="form-horizontal col-sm-offset-3 col-md-offset-3" id="login_form">
+          <h3 class="form-title">
+              <strong>Login to your account</strong></h3>
+          <div class="col-sm-9 col-md-9">
+              <div class="form-group">
+                  <i class="fa fa-user fa-lg"></i>
+                  <input class="form-control required" type="text" [(ngModel)]="username" placeholder="Username" name="username" autofocus="autofocus" maxlength="20"/>
+              </div>
+              <div class="form-group">
+                  <i class="fa fa-lock fa-lg"></i>
+                  <input class="form-control required" type="password" [(ngModel)]="password" placeholder="Password" name="password" maxlength="8"/>
+              </div>
+              <div class="form-group">
+                  <label class="checkbox">
+                      <input type="checkbox" name="remember" value="1"/> Remember me
+                  </label>
+                  <p>{{ error }}</p>
+                  <a href="javascript:;" id="register_btn" class="">Create an account</a>
+              </div>
+              <div class="form-group">
+                  <input type="submit" class="btn btn-success pull-right" value="Login" (click)="login()"/>
+              </div>
+          </div>
+      </form>
+  </div>
+</div>

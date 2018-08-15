@@ -8,8 +8,6 @@ import { Symbol } from '../models/symbol';
 })
 export class SymbolsSelectorComponent implements OnInit {
 
-  symbols: Symbol[];
-
   constructor() { }
 
   ngOnInit() {

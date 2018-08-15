@@ -28,6 +28,14 @@ function getSymbols() {
     return data;
 }
 
+function login() {
+    return {
+        username: 'root',
+        password: 'root',
+        userid: 1
+    }
+}
+
 
 function getPrice() {
     var data = {
@@ -47,7 +55,7 @@ function getPrice() {
             }
         ]
     };
-    for (var i = 0; i < 1000; i++) {
+    for (var i = 0; i < 500; i++) {
         var record = []
         record.push(faker.date.past(2016));
         record.push(faker.random.number({ min: 10, max: 50 }));
@@ -55,9 +63,10 @@ function getPrice() {
         record.push(faker.random.number({ min: 10, max: 50 }));
         record.push(faker.random.number({ min: 10, max: 50 }));
         record.push(faker.random.number({ min: 1000000, max: 100000000 }));
+        record.push(faker.random.number({ min: -3, max: 3 }));
         data.result[0].data.push(record);
     }
-    for (var i = 0; i < 1000; i++) {
+    for (var i = 0; i < 500; i++) {
         var record = []
         record.push(faker.date.past(2016));
         record.push(faker.random.number({ min: 10, max: 50 }));
@@ -65,9 +74,10 @@ function getPrice() {
         record.push(faker.random.number({ min: 10, max: 50 }));
         record.push(faker.random.number({ min: 10, max: 50 }));
         record.push(faker.random.number({ min: 1000000, max: 100000000 }));
+        record.push(faker.random.number({ min: -3, max: 3 }));
         data.result[1].data.push(record);
     }
-    for (var i = 0; i < 1000; i++) {
+    for (var i = 0; i < 500; i++) {
         var record = []
         record.push(faker.date.past(2016));
         record.push(faker.random.number({ min: 10, max: 50 }));
@@ -75,9 +85,10 @@ function getPrice() {
         record.push(faker.random.number({ min: 10, max: 50 }));
         record.push(faker.random.number({ min: 10, max: 50 }));
         record.push(faker.random.number({ min: 1000000, max: 100000000 }));
+        record.push(faker.random.number({ min: -3, max: 3 }));
         data.result[2].data.push(record);
     }
-    return { price: data, symbol: getSymbols() };
+    return { price: data, symbol: getSymbols(), login: login()};
 }
 
 

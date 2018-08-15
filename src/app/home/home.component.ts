@@ -32,8 +32,8 @@ export class HomeComponent implements OnInit {
     this.symbols = this.all_symbols.filter(symbol => symbol.symbol.startsWith(this.prefix));
   }
 
-  toDetail(symbol: Symbol) {
-    this.router.navigate(['/symbol/' + symbol.symbol])
+  showDetail(symbol: Symbol) {
+    this.router.navigate(['/symbol', {ids: symbol.symbol}]);
   }
 
 }

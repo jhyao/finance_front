@@ -7,8 +7,7 @@
         </div>
         <!--end of col-->
         <div class="col">
-          <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search symbols"
-            (keyup)="showSearch($event)">
+          <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search symbols" (keyup)="showSearch($event)">
         </div>
         <!--end of col-->
         <div class="col-auto">
@@ -32,9 +31,13 @@
   <div class="table-container">
     <table class="table">
       <tbody>
-        <tr class="symbol-row" *ngFor="let symbol of symbols" (click)="toDetail(symbol)">
-          <td class="first-column" scope="row"><strong>{{ prefix }}</strong>{{ symbol.symbol.slice(prefix.length) }}</td>
-          <td class="second-column">{{ symbol.companyname }}</td>
+        <tr class="symbol-row" *ngFor="let symbol of symbols" (click)="showDetail(symbol)">
+          <td class="first-column" scope="row">
+              <strong>{{ prefix }}</strong>{{ symbol.symbol.slice(prefix.length) }}
+          </td>
+          <td class="second-column">
+            {{ symbol.companyname }}
+          </td>
         </tr>
       </tbody>
     </table>

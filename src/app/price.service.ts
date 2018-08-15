@@ -9,7 +9,7 @@ import { config } from './config';
 })
 export class PriceService {
 
-  price_data_url = config.api_url + 'price';
+  price_data_url = config.api_url + config.price_api;
 
   constructor(
     private http: HttpClient
@@ -19,7 +19,7 @@ export class PriceService {
     let params = {
       from_date: dateFrom,
       to_date: dateTo,
-      symbol: symbols.join('|'),
+      symbol: symbols.join(','),
       interval: interval
     }
     return this.http.get<any>(this.price_data_url, {params: params});

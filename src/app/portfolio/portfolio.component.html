@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="portfolio-card" *ngFor="let portfolio of portfolios">
+      <ul class="list-group">
+        <li class="list-group-item active portfolio-title" (click)="showPortfolio(portfolio)">
+          <div class="item-inline">
+            <h5 class="portfolio-name">{{ portfolio.portfolioname }}</h5>
+            <span class="oi oi-circle-x remove-icon" (click)="remove(symbol)"></span>
+          </div>
+        </li>
+      </ul>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let symbol of portfolio.symbols">
+          <div>
+            <h6 class="portfolio-name">{{ symbol.symbol }} ({{ symbol.companyname }})</h6>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

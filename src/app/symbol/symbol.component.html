@@ -1,18 +1,90 @@
 <div>
+    <div class="container symbol-selector-container">
+        <div class="symbol-item active" *ngFor="let symbol of symbols" id="symbol-{{symbol.symbol}}" title="{{ symbol.companyname }}"
+            (click)="removeActive(symbol)">
+            <h5 class="symbol-code">{{ symbol.symbol }}</h5>
+            <span class="oi oi-circle-x remove-icon" (click)="remove(symbol)"></span>
+        </div>
+        <div class="add-item">
+            <span class="oi oi-plus add-icon" (click)="open(content)"></span>
+        </div>
+        <div class="clear-float"></div>
+    </div>
+
     <div class="container">
-        <div class="">
-            <div class="symbol-item active" *ngFor="let symbol of symbols" id="symbol-{{symbol.symbol}}" title="{{ symbol.companyname }}"
-                (click)="removeActive(symbol)">
-                <h5 class="symbol-code">{{ symbol.symbol }}</h5>
-                <span class="oi oi-circle-x remove-icon" (click)="remove(symbol)"></span>
+        <div class="card chart-card">
+            <div class="card-body">
+                <div class="chart-container">
+                    <div class="filter-container">
+                        <form>
+                            <div class="form-group row">
+                                <label class="col-form-label col-form-label-sm" for="from-date">From: </label>
+                                <input class="form-control form-control-sm filter-input" type="date" id="from-date" name="fromDate" value="2016-01-01" min="2016-01-01"
+                                    max="2016-03-31" [(ngModel)]="filter.fromDate" (change)="refreshDate()">
+                                <label class="col-form-label col-form-label-sm" for="to-date">To: </label>
+                                <input class="form-control form-control-sm filter-input" type="date" id="to-date" name="toDate" value="2016-03-31" min="2016-01-01" max="2016-03-31"
+                                    [(ngModel)]="filter.toDate" (change)="refreshDate()">
+                                <label class="col-form-label col-form-label-sm" for="interval">Interval: </label>
+                                <select id="interval" class="form-control form-control-sm filter-input" name="interval" [(ngModel)]="filter.interval" (change)="refreshInterval()">
+                                    <option value="1h">1 hour</option>
+                                    <option selected value="1d">1 day</option>
+                                    <option value="1m">1 month</option>
+                                </select>
+                                <label class="col-form-label col-form-label-sm" for="chart-type">Chart: </label>
+                                <select id="chart-type" class="form-control form-control-sm filter-input" name="chartType" [(ngModel)]="filter.chartType" (change)="refreshType()">
+                                    <option selected value="k">Candlestick</option>
+                                    <option value="p">Price Line</option>
+                                    <option value="v">Volume Line</option>
+                                    <option value="c">Change</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="chart"></div>
+                </div>
             </div>
-            <div class="add-item">
-                <span class="oi oi-plus add-icon" (click)="open(content)"></span>
-            </div>
-            <div class="clear-float"></div>
         </div>
     </div>
-    <app-chart [symbols]="{{ symbols }}" [activeSymbols]="{{ active_symbols }}"></app-chart>
+
+    <!-- top tail -->
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div class="filter-container">
+                    <form>
+                        <div class="form-group row">
+                            <label class="col-form-label col-form-label-sm" for="tt-symbol">Symbol: </label>
+                            <select id="tt-symbol" class="form-control form-control-sm filter-input" name="tt_symbol" [(ngModel)]="tt.symbol" (change)="calculate_tt()">
+                                <option *ngFor="let symbol of symbols" value="{{ symbol.symbol }}">{{ symbol.symbol }}</option>
+                            </select>
+                            <label class="col-form-label col-form-label-sm" for="tt-type">Symbol: </label>
+                            <select id="tt-type" class="form-control form-control-sm filter-input" name="tt_type" [(ngModel)]="tt.type" (change)="calculate_tt()">
+                                <option value="price">Price</option>
+                                <option value="volume">Volume</option>
+                                <option value="change">Change</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <table class="table table-sm table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">High Time</th>
+                            <th scope="col">High {{ tt.type }}</th>
+                            <th scope="col">Low Time</th>
+                            <th scope="col">Low {{ tt.type }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="symbol-row" *ngFor="let top_tail of tt.data">
+                            <td *ngFor="let column of top_tail">{{ column }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <ng-template #content let-c="close" let-d="dismiss">
@@ -25,8 +97,8 @@
     <div class="modal-body">
         <form>
             <div class="form-group">
-                <input id="symbol-input" class="form-control" placeholder="symbol" name="symbol-input" type="text"
-                 (keyup)="showSearch($event)" [(ngModel)]="prefix">
+                <input id="symbol-input" class="form-control" placeholder="symbol" name="symbol-input" type="text" (keyup)="showSearch($event)"
+                    [(ngModel)]="prefix" autocomplete="off">
                 <div class="symbol-list-container">
                     <ul class="list-group">
                         <li class="list-group-item" *ngFor="let symbol of search_symbols" (click)="selectSymbol(symbol)">
