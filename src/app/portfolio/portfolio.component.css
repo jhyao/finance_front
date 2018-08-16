@@ -1,4 +1,4 @@
-.portfolio-card {
+/* .portfolio-card {
     width: 300px !important;
     height: 100px;
     margin: 20px 10px;
@@ -28,4 +28,81 @@ h6, h5 {
 }
 .portfolio-title:hover{
     background-color: rgb(101, 101, 255)
+} */
+
+
+.symbol-item {
+    width: 100px;
+    height: 45px;
+    border: 1px solid rgba(0,0,0,0.25);
+    border-radius: 2px;
+    padding: 12px 15px;
+    box-sizing: border-box;
+    position: relative;
+    background-color:white;
+    color: black;
+}
+.remove-icon {
+    position: absolute;
+    right: 10px;
+    top: 14px;
+    color:rgb(167, 167, 167);
+    /* visibility: hidden; */
+}
+.remove-icon:hover{
+    color: black;
+}
+.out-btn{
+    float: left;
+    height:45px;
+    margin-left: 10px;
+}
+.symbol-code {
+    margin-bottom: 0;
+    line-height: 16px;
+    height: 16px;
+    margin: auto 0;
+}
+.add-icon {
+    height: 16px;
+    margin-top: 13px;
+    color: rgb(167, 167, 167);
+}
+
+.add-icon:hover {
+    color: black;
+}
+
+.portfolio-container {
+    margin-top: 30px;
+}
+
+.portfolio-name {
+    background-color: rgb(56, 56, 56);
+    color: white;
+}
+
+.list-group-item:hover {
+    background-color: grey;
+}
+
+.create-container {
+    width: 300px;
+    margin-top: 30px;
+}
+
+#create-btn {
+    background-color: blue;
+    color: white;
+}
+
+
+.delete-portfolio-icon {
+    height: 16px;
+    margin-top: 13px;
+    color: rgb(167, 167, 167);
+}
+    
+.delete-portfolio-icon:hover {
+    color: black;
 }

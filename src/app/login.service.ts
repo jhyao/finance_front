@@ -11,7 +11,7 @@ import { User } from './models/user';
 })
 export class LoginService {
 
-  url = config.api_url + 'login';
+  url = config.api_url + config.login_url;
 
   user: User;
 

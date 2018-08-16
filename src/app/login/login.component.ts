@@ -16,18 +16,12 @@ export class LoginComponent implements OnInit {
   redirectTo: string = '/home';
   constructor(
     private loginService: LoginService,
-    private activatedRouter: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private router: Router
-  ) {
-    this.activatedRouter.queryParams.subscribe(params => {
-      if (params.redirectTo) {
-        this.redirectTo = params.redirectTo;
-      }
-    });
-  }
+  ) {  }
 
   ngOnInit() {
-
+    this.redirectTo = this.activatedRoute.snapshot.params['redirectTo'];
   }
 
   login() {
@@ -42,12 +36,11 @@ export class LoginComponent implements OnInit {
         if(response.error) {
           this.error = response.error;
         } else {
-          this.loginService.user = response;
+          this.loginService.user = response.result;
           console.log(this.loginService.getUser());
-          $(".nav-item").removeClass('active');
           $("#nav-login").hide();
           $('#nav-user').show();
-          $('#nav-user').html(response.username);
+          $('#nav-user').html(response.result.username);
           this.router.navigate([this.redirectTo]);
         }
       }

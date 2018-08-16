@@ -102,7 +102,9 @@
                 <div class="symbol-list-container">
                     <ul class="list-group">
                         <li class="list-group-item" *ngFor="let symbol of search_symbols" (click)="selectSymbol(symbol)">
-                            <strong>{{ prefix }}</strong>{{ symbol.symbol.slice(prefix.length) }} ({{ symbol.companyname }})</li>
+                            <strong>{{ prefix }}</strong>{{ symbol.symbol.slice(prefix.length) }} ({{ symbol.companyname }})
+                            <!-- {{ symbol.symbol }} ({{ symbol.companyname }}) -->
+                        </li>
                     </ul>
                 </div>
             </div>

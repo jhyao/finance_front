@@ -115,12 +115,12 @@ export class SymbolComponent implements OnInit {
     if (ids) {
       this.ids = ids.split('|');
     } 
-    console.log(this.ids);
+    console.log('symbol component get id from param ' + this.ids);
     this.symbolService.getSymbols().subscribe(symbols => {
       this.symbolService.saveSymbols(symbols);
       this.symbols = symbols.filter(symbol => this.ids.includes(symbol.symbol));
       this.active_symbols = this.symbols.slice();
-      this.search_symbols = this.symbols.slice();
+      this.search_symbols = symbols;
       console.log(this.symbols);
       this.myChart = echarts.init($('#chart').get(0));
       if (this.symbols.length > 0) {

@@ -1,9 +1,8 @@
 import { Symbol } from './symbol';
 
 export class Portfolio{
-    portfolioid: number;
-    portfolioname: string;
-    createdate: string;
-    userid: number;
+    portfolioId: number;
+    portfolioName: string;
+    createDate: string;
     symbols: Symbol[];
 }

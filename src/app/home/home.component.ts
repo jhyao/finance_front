@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SymbolService } from '../symbol.service';
 import { Symbol } from '../models/symbol';
 import { Router } from '@angular/router';
-
+import * as $ from 'jquery';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
