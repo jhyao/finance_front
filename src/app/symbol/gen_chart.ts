@@ -238,6 +238,10 @@ function getEmptyOption(ids, data) {
                 scale: true,
                 splitArea: {
                     show: true
+                },
+                axisLabel: {
+                    inside: true,
+                    formatter: '{value}\n'
                 }
             },
             {

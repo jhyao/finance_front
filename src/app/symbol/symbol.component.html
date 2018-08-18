@@ -28,7 +28,7 @@
                                 <select id="interval" class="form-control form-control-sm filter-input" name="interval" [(ngModel)]="filter.interval" (change)="refreshInterval()">
                                     <option value="1h">1 hour</option>
                                     <option selected value="1d">1 day</option>
-                                    <option value="1m">1 month</option>
+                                    <!-- <option value="1m">1 month</option> -->
                                 </select>
                                 <label class="col-form-label col-form-label-sm" for="chart-type">Chart: </label>
                                 <select id="chart-type" class="form-control form-control-sm filter-input" name="chartType" [(ngModel)]="filter.chartType" (change)="refreshType()">
@@ -57,7 +57,7 @@
                             <select id="tt-symbol" class="form-control form-control-sm filter-input" name="tt_symbol" [(ngModel)]="tt.symbol" (change)="calculate_tt()">
                                 <option *ngFor="let symbol of symbols" value="{{ symbol.symbol }}">{{ symbol.symbol }}</option>
                             </select>
-                            <label class="col-form-label col-form-label-sm" for="tt-type">Symbol: </label>
+                            <label class="col-form-label col-form-label-sm" for="tt-type">Type: </label>
                             <select id="tt-type" class="form-control form-control-sm filter-input" name="tt_type" [(ngModel)]="tt.type" (change)="calculate_tt()">
                                 <option value="price">Price</option>
                                 <option value="volume">Volume</option>
@@ -69,10 +69,10 @@
                 <table class="table table-sm table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">High Time</th>
-                            <th scope="col">High {{ tt.type }}</th>
+                            <th scope="col">Top Time</th>
+                            <th scope="col">Toppest 10 {{ tt.type }}</th>
                             <th scope="col">Low Time</th>
-                            <th scope="col">Low {{ tt.type }}</th>
+                            <th scope="col">Lowest 10 {{ tt.type }}</th>
                         </tr>
                     </thead>
                     <tbody>

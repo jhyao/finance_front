@@ -8,7 +8,7 @@ function getTTPrice(price_data: any, num=10) {
     let tops = meta_data.slice(meta_data.length - num, meta_data.length);
     let result = [];
     for (let i = 0; i < tops.length; i++) {
-        result.push([tops[i][0], tops[i][2], tails[i][0], tails[i][2]])
+        result.push([tops[num-i-1][0], tops[num-i-1][2], tails[i][0], tails[i][2]])
     }
     price_data.tt_price = result;
     return result;
@@ -24,7 +24,7 @@ function getTTVolume(price_data: any, num=10) {
     let tops = meta_data.slice(meta_data.length - num, meta_data.length);
     let result = [];
     for (let i = 0; i < tops.length; i++) {
-        result.push([tops[i][0], tops[i][5], tails[i][0], tails[i][5]])
+        result.push([tops[num-i-1][0], tops[num-i-1][5], tails[i][0], tails[i][5]])
     }
     price_data.tt_volume = result;
     return result;
@@ -40,7 +40,7 @@ function getTTChange(price_data: any, num=10) {
     let tops = meta_data.slice(meta_data.length - num, meta_data.length);
     let result = [];
     for (let i = 0; i < tops.length; i++) {
-        result.push([tops[i][0], tops[i][6], tails[i][0], tails[i][6]])
+        result.push([tops[num-i-1][0], tops[num-i-1][6], tails[i][0], tails[i][6]])
     }
     price_data.tt_change = result;
     return result;

@@ -21,7 +21,10 @@ export class LoginComponent implements OnInit {
   ) {  }
 
   ngOnInit() {
-    this.redirectTo = this.activatedRoute.snapshot.params['redirectTo'];
+    var rt = this.activatedRoute.snapshot.params['redirectTo'];
+    if (rt) {
+      this.redirectTo = rt;
+    }
   }
 
   login() {

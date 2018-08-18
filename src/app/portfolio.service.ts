@@ -36,12 +36,13 @@ export class PortfolioService {
       portfolioid :portfolio.portfolioId,
 			symbolid :symbol.symbolid
     }
-    let option = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-    return this.http.post(this.add_symbol_url, body, option);
+    // let option = {
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   }
+    // }
+    // return this.http.post(this.add_symbol_url, body, option);
+    return this.http.post(this.add_symbol_url, body);
   }
 
   deleteSymbol(symbol: Symbol, portfolio: Portfolio): Observable<any> {
